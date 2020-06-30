@@ -6,7 +6,7 @@ const redis = require('redis');
 const CoronaDatos = require('../models/CoronaDatos');
 
 //ceate redis client
-let client =redis.createClient();
+let client =redis.createClient(6379,'34.72.154.57');
 client.on('connect', function(){
     console.log('Conectado a Redis');
 });
@@ -15,7 +15,8 @@ router.get('/', async(req,res)=>{
     const datos = await CoronaDatos.find();
     let datosFormR = client.hgetall('datosCovid',(err,obj)=>{
         if(!obj){
-            console.log('error no existe informacion')
+            console.log('error no existe informacion');
+            res.render('index',{obj, datos});
         }else{
             const datosFormRedis = obj;
             //console.log(datosFormRedis);
