@@ -10,40 +10,47 @@
                 <table class="table table-striped table-dark">
                     <thead>
                         <tr>
+                            <th>Nombre</th>
                             <th>Departamento</th>
-                            <th>DPI</th>
                             <th>Edad</th>
-                            <th>Fecha de registro</th>
+                            <th>Forma de contagio</th>
+                            <th>Estado</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            {{#each datos}}
-                                <td>{{departamento}}</td>
-                                <td>{{dpi}}</td>
-                                <td>{{edad}}</td>
-                                <td>{{fecha}}</td>
-                            {{/each}}
-                        </tr>
+                        {{#each datos}}
+                            <tr>
+                                <td>{{Nombre}}</td>
+                                <td>{{Departamento}}</td>
+                                <td>{{Edad}}</td>
+                                <td>{{Forma_contagio}}</td>
+                                <td>{{Estado}}</td>
+                            </tr>
+                        {{/each}}
                     </tbody>
                 </table>
             </div>
             <hr>
             <h3>Datos de Redis</h3>
+            <h4>ultimo dato registrado</h4>
             <div id="ventana-stats" class="card">
                 <table class="table table-striped table-dark">
                     <thead>
                         <tr>
+                            <th>Nombre</th>
                             <th>Departamento</th>
-                            <th>DPI</th>
                             <th>Edad</th>
+                            <th>Forma de contagio</th>
+                            <th>Estado</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{{datosFormRedis.departamento}}</td>
-                            <td>{{datosFormRedis.dpi}}</td>
-                            <td>{{datosFormRedis.edad}}</td>
+                            <td>{{datosFormRedis.Nombre}}</td>
+                            <td>{{datosFormRedis.Departamento}}</td>
+                            <td>{{datosFormRedis.Edad}}</td>
+                            <td>{{datosFormRedis.Forma_contagio}}</td>
+                            <td>{{datosFormRedis.Estado}}</td>
                         </tr>
                     </tbody>
                 </table>

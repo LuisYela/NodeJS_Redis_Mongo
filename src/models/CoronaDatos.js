@@ -2,10 +2,11 @@ const mongoose =require('mongoose');
 const { Schema } = mongoose;
 
 const CoronaSchema= new Schema({
-    departamento: {type:String, required:true},
-    dpi: {type: String, required:true},
-    edad: {type:Number, required:true},
-    fecha: {type:Date, default: Date.now}
+    Nombre:{type: String, required:true},
+    Departamento: {type:String, required:true},
+    Edad: {type:Number, required:true},
+    Forma_contagio: {type: String, required:true},
+    Estado: {type: String, required:true},
 });
 
 module.exports=mongoose.model('Corona', CoronaSchema);
