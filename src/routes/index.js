@@ -15,7 +15,7 @@ router.get('/', async(req,res)=>{
     const datos = await CoronaDatos.find();
     let datosFormR = client.hgetall('datosCovid',(err,obj)=>{
         if(!obj){
-            console.log('error no existe informacion');
+            //console.log('error no existe informacion');
             res.render('index',{obj, datos});
         }else{
             const datosFormRedis = obj;
@@ -36,11 +36,11 @@ router.get('/graficasDep', async(req,res)=>{
 router.get('/graficaEdades',async(req,res)=>{
     let datosFormR = client.mget(['0-30','31-40','41-50','51-60','61-70','71-80','mayores_a_80'],(err,obj)=>{
         if(!obj){
-            console.log('error no existe informacion');
+            //console.log('error no existe informacion');
             res.render('index',{obj, datos});
         }else{
             const datosFormRedis = {uno:obj[0],dos:obj[1],tres:obj[2],cuatro:obj[3],cinco:obj[4],seis:obj[5],siete:obj[6]};
-            console.log(datosFormRedis);
+            //console.log(datosFormRedis);
             res.render('graficaEdades',{datosFormRedis});
         }
     });
@@ -56,7 +56,7 @@ router.get('/addToRedis',(req,res)=>{
 
 router.post('/addToRedis', async(req, res)=>{
     const {Nombre,Departamento, Edad,Forma_contagio, Estado}=req.body;
-    console.log(req.body);
+    //console.log(req.body);
     const errors=[];
     if(!Nombre){
         errors.push({text:'Debe poner el nombre'});
