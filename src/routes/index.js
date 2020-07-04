@@ -5,7 +5,7 @@ const redis = require('redis');
 const CoronaDatos = require('../models/CoronaDatos');
 
 //ceate redis client
-let client =redis.createClient(6379,'35.223.184.245');
+let client =redis.createClient(6379,'34.72.177.202');
 //let client =redis.createClient();
 client.on('connect', function(){
     console.log('Conectado a Redis');
